@@ -4,6 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script src="js/lib/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
 <script src="js/app/app.js"></script>
 <script src="js/app/ImageCtr.js"></script>
 <script src="js/app/directives/minhas-diretivas.js"></script>
@@ -30,25 +31,10 @@
 	crossorigin="anonymous"></script>
 
 </head>
-<body ng-controller="ImageCtr">
+<body >
 
 	<div class="container">
-		<div class="jumbotron">
-			<h1 class="text-center">Alura pick</h1>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<form>
-					<input class="form-control"	placeholder="filtrar pelo título da foto" ng-model="filtro" ng-model-options="{ debounce: 500 }">
-				</form>
-			</div>
-		</div>
-		<!-- fim row -->
-		<div class="row">
-			<meu-paragrafo class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter:filtro" titulo="{{foto.titulo}}">
-			<img class="img-responsive center-block" ng-src="{{foto.url}}"
-				alt="{{foto.titulo}}"> </meu-paragrafo>
-		</div>
+		<ng-view></ng-view>
 	</div>
 </body>
 </html>
