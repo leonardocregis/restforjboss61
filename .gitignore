@@ -5,3 +5,6 @@ desktop.ini
 src/local/MyInterface.class
 src/virtual/Test.class
 /bin/
+.classpath
+.project
+.settings/org.eclipse.jdt.core.prefs
