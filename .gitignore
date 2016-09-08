@@ -1,0 +1,6 @@
+/target/
+/dbfiles.json
+/build/
+desktop.ini
+src/local/MyInterface.class
+src/virtual/Test.class

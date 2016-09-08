@@ -1,0 +1,1 @@
+var aplicativo = angular.module('myapp',['minhasDiretivas','ngAnimate']);
