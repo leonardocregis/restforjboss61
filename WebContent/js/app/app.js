@@ -8,6 +8,9 @@ var aplicativo = angular.module('myapp',['minhasDiretivas','ngAnimate','ngRoute'
         controller: 'minhasDiretivas'
     });
     
+    $routeProvider.when('/fotos/new', {
+        templateUrl: 'partials/foto.html'
+    });
 
     $routeProvider.otherwise({redirectTo: '/fotos'});e
 });
