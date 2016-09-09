@@ -1,16 +1,14 @@
-var aplicativo = angular.module('myapp',['minhasDiretivas','ngAnimate','ngRoute'])
+var aplicativo = angular.module('myapp',['ngAnimate','ngRoute','minhasDiretivas'])
 .config(function($routeProvider){
 	
-	$locationProvider.html5Mode(true);
-
     $routeProvider.when('/fotos', {
         templateUrl: 'partials/principal.html',
-        controller: 'minhasDiretivas'
+        controller: 'ImageCtr'
     });
     
     $routeProvider.when('/fotos/new', {
         templateUrl: 'partials/foto.html'
     });
 
-    $routeProvider.otherwise({redirectTo: '/fotos'});e
+    $routeProvider.otherwise({redirectTo: '/fotos'});
 });
