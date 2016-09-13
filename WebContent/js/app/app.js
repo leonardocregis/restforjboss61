@@ -6,7 +6,7 @@ var aplicativo = angular.module('myapp',['ngAnimate','ngRoute','minhasDiretivas'
         controller: 'ImagesCtr'
     });
     
-    $routeProvider.when('/fweotos/new', {
+    $routeProvider.when('/fotos/new', {
         templateUrl: 'partials/foto.html'
     });
 
