@@ -3,10 +3,10 @@ var aplicativo = angular.module('myapp',['ngAnimate','ngRoute','minhasDiretivas'
 	
     $routeProvider.when('/fotos', {
         templateUrl: 'partials/principal.html',
-        controller: 'ImageCtr'
+        controller: 'ImagesCtr'
     });
     
-    $routeProvider.when('/fotos/new', {
+    $routeProvider.when('/fweotos/new', {
         templateUrl: 'partials/foto.html'
     });
 

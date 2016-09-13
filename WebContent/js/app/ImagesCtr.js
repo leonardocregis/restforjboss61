@@ -2,7 +2,7 @@
  * @LRegis
  */
 
-angular.module('myapp').controller('ImageCtr',['$scope','$http',function($scope,$http){
+angular.module('myapp').controller('ImagesCtr',['$scope','$http',function($scope,$http){
 	
 		$scope.fotos = [];
 		$scope.filtro = '';
