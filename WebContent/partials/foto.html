@@ -8,16 +8,22 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Título</label>
-            <input ng-model="foto.titulo" name="titulo" class="form-control" required>    
+            <input ng-model="foto.titulo" name="titulo" class="form-control" required>
+             <span ng-show = "formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger">
+                Título obrigatório
+            </span>    
         </div>
         <div class="form-group">
             <label>URL</label>
             <input ng-model="foto.url" name="url" class="form-control" required>
+            <span ng-show = "formulario.$submitted &&formulario.url.$error.required" class="form-control alert-danger">
+                Url Obrigatória
+            </span>
         </div>
         <div class="form-group">
             <label>Descrição</label>
-            <textarea ng-model="foto.descricao" name="descricao" class="form-control" required></textarea>
-            
+            <textarea ng-model="foto.descricao" name="descricao" class="form-control"></textarea>
+
         </div>
         <button type="submit" class="btn btn-primary">
             Salvar
