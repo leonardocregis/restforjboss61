@@ -9,7 +9,8 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http',function($scope,
 		$scope.submit = function submit(){
 			if ($scope.formulario.$valid){
 				console.log('submited');
-				$scope.message='submited';
+				$scope.foto= {};
+				$scope.message='Imagem cadastrada com sucesso';
 			}
 		};
 		
