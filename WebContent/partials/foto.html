@@ -1,8 +1,12 @@
 <!-- public/partials/foto.html -->
 
+
 <div class="page-header text-center">
     <h1>{{foto.titulo}}</h1>
 </div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
 
 <form novalidate name="formulario" class="row" ng-submit="submit()">
     <div class="col-md-6">
@@ -31,7 +35,6 @@
             <textarea ng-model="foto.descricao" name="descricao" class="form-control"></textarea>
 
         </div>
-		<span ng-show="" class="form-control alert-success">Image submitted</span>
         <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
             Salvar
         </button>
