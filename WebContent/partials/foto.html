@@ -8,13 +8,16 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Título</label>
-            <input ng-model="foto.titulo" name="titulo" class="form-control"  required ng-maxlength="20">
+            <input ng-model="foto.titulo" name="titulo" class="form-control"  required ng-maxlength="20" ng-minlength="5"> 
              <span ng-show = "formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger" >
                 Título obrigatório
             </span>    
             <span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" class="form-control alert-danger">
                 No máximo 20 caracteres!
             </span> 
+            <span ng-show="formulario.$submitted && formulario.titulo.$error.minlength" class="form-control alert-danger">
+                No minimo 5 caracteres!
+            </span>
         </div>
         <div class="form-group">
             <label>URL</label>
