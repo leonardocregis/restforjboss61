@@ -31,8 +31,8 @@
             <textarea ng-model="foto.descricao" name="descricao" class="form-control"></textarea>
 
         </div>
-		<span ng-show="formulario.$submitted && !formulario.url.$error.required && !formulario.titulo.$error.maxlength && !formulario.titulo.$error.minlength" class="form-control alert-success"> Image submitted</span>
-        <button type="submit" class="btn btn-primary">
+		<span ng-show="" class="form-control alert-success">Image submitted</span>
+        <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
             Salvar
         </button>
         <a href="#" class="btn btn-primary">Voltar</a>
