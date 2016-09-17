@@ -52,6 +52,11 @@ public class DbAngular {
 		}
 		return posts;
 	}
+
+	public void add(Post post) {
+		posts.add(post);		
+	}
+
 	public static void main(String[] args) {
 		try {
 			DbAngular dbAngular = new DbAngular("dbfiles.json");
@@ -61,4 +66,5 @@ public class DbAngular {
 			e.printStackTrace();
 		}
 	}
+
 }
