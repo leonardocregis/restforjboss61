@@ -1,2 +1,47 @@
 <!-- public/partials/foto.html -->
-<h1>Cadastro</h1>
+
+
+<div class="page-header text-center">
+    <h1>{{foto.titulo}}</h1>
+</div>
+
+<p ng-show="message.length" class="alert alert-info">{{message}}</p>
+
+
+<form novalidate name="formulario" class="row" ng-submit="submit()">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Título</label>
+            <input ng-model="foto.titulo" name="titulo" class="form-control"  required ng-maxlength="20" ng-minlength="5"> 
+             <span ng-show = "formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger" >
+                Título obrigatório
+            </span>    
+            <span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" class="form-control alert-danger">
+                No máximo 20 caracteres!
+            </span> 
+            <span ng-show="formulario.titulo.$touched && formulario.titulo.$error.minlength" class="form-control alert-danger">
+                No minimo 5 caracteres!
+            </span>
+        </div>
+        <div class="form-group">
+            <label>URL</label>
+            <input ng-model="foto.url" name="url" class="form-control" required>
+            <span ng-show = "formulario.$submitted &&formulario.url.$error.required" class="form-control alert-danger">
+                Url Obrigatória
+            </span>
+        </div>
+        <div class="form-group">
+            <label>Descrição</label>
+            <textarea ng-model="foto.descricao" name="descricao" class="form-control"></textarea>
+
+        </div>
+        <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
+            Salvar
+        </button>
+        <a href="#" class="btn btn-primary">Voltar</a>
+        <hr>
+    </div>
+    <div class="col-md-6">
+        <minha-foto url={{foto.url}}></minha-foto>
+    </div>
+</form>
