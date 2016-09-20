@@ -4,16 +4,29 @@
     <h1 class="text-center">Alurapic</h1>
 </div>
 
+<p ng-show="message.length" class="alert alert-info">
+    {{message}}
+</p>
+
 <div class="row">
     <div class="col-md-12">
-    <form>
-         <input class="form-control" placeholder="filtrar pelo título da foto" ng-model="filtro" ng-model-options="{ debounce: 500 }">
-    </form>
-    </div> <!-- fim col-md-12 -->
-</div> <!-- fim row -->
+        <form>
+             <div class="input-group">
+                <span class="input-group-btn">
+                    <a href="#/fotos/new" class="btn btn-primary" type="button">
+                        Nova foto
+                    </a>
+                </span>
+                <input class="form-control" placeholder="filtrar pelo título da foto" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+            </div> 
+        </form>
+    </div>
+</div>
 
 <div class="row">
     <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
-        <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
+        <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto>
+        <a class="btn btn-primary btn-block" href="">Editar</a>
+        <button ng-click="remover(foto)" class="btn btn-danger btn-block" >Remover</button>
     </meu-painel>
 </div>
