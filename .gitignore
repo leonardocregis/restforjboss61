@@ -6,3 +6,4 @@ src/local/MyInterface.class
 src/virtual/Test.class
 .project
 /.settings/
+.classpath
