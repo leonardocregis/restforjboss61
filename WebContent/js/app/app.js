@@ -12,4 +12,5 @@ var aplicativo = angular.module('myapp',['ngAnimate','ngRoute','minhasDiretivas'
     });
 
     $routeProvider.otherwise({redirectTo: '/fotos'});
+
 });

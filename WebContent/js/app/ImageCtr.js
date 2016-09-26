@@ -1,5 +1,5 @@
 /**
- * @author LRegis 
+ * @author LRegis
  */
 
 angular.module('myapp').controller('ImageCtr',['$scope','$http',function($scope,$http){
@@ -16,7 +16,7 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http',function($scope,
 	                .error(function(erro) {
 	                    console.log(erro);
 	                    $scope.mensagem = 'Não foi possível cadastrar a foto';
-	                });	
+	                });
 		    }
 		};
 		

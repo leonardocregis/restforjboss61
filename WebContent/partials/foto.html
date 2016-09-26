@@ -19,7 +19,7 @@
             <span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" class="form-control alert-danger">
                 No máximo 20 caracteres!
             </span> 
-            <span ng-show="formulario.$submitted && formulario.titulo.$error.minlength" class="form-control alert-danger">
+            <span ng-show="formulario.titulo.$touched && formulario.titulo.$error.minlength" class="form-control alert-danger">
                 No minimo 5 caracteres!
             </span>
         </div>
@@ -44,4 +44,5 @@
     <div class="col-md-6">
         <minha-foto url={{foto.url}}></minha-foto>
     </div>
+
 </form>
