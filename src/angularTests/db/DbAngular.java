@@ -67,4 +67,9 @@ public class DbAngular {
 		}
 	}
 
+	public boolean remove(long id) {
+		return posts.remove(id);
+		
+	}
+
 }
