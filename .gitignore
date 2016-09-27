@@ -7,3 +7,4 @@ src/virtual/Test.class
 .project
 /.settings/
 .classpath
+.tern-project
