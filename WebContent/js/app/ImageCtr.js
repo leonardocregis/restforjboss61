@@ -19,6 +19,18 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams',f
 		
 		$scope.submit = function submit(){
 			if ($scope.formulario.$valid){
+                if($routeParams.idFoto) {
+                    $http.put('rest/posts' + $scope.foto._id, $scope.foto)
+                    .success(function() {
+                        $scope.mensagem = 'Foto alterada com sucesso';
+
+                    })
+                    .error(function(erro) {
+                        console.log(erro);
+                        $scope.mensagem = 'Não foi possível alterar';
+                    });
+
+                }else{
 				   $http.post('rest/posts', $scope.foto)
 	                .success(function() {
 	                	$scope.foto={};
@@ -28,6 +40,7 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams',f
 	                    console.log(erro);
 	                    $scope.mensagem = 'Não foi possível cadastrar a foto';
 	                });
+                }
 		    }
 		};
 		
