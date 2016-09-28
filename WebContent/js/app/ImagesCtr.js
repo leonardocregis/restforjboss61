@@ -22,6 +22,8 @@ angular.module('myapp').controller('ImagesCtr',['$scope','$http',function($scope
 			.success(function(retorno){
 				console.log("sucess")
 				$scope.message = retorno;
+				$scope.fotos.splice(idFoto,1);
+				
 			})
 			.error(function(error){
 				console.log("failure");
