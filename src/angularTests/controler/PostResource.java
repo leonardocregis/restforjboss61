@@ -25,7 +25,6 @@ public class PostResource {
 		dbAngular = DbAngular.instance("dbfiles.json");
 	}
 	
-	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Post> getPosts(){
@@ -44,6 +43,7 @@ public class PostResource {
 	@DELETE
 	@Path("{id}")
 	public Message remove(@PathParam("id")long id){
+		log.info("removing item with id="+id);
 		return new Message(dbAngular.remove(id)?"sucess":"failure");
 	}
 }
