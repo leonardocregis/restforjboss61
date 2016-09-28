@@ -22,7 +22,7 @@ public class PostResource {
 	private DbAngular dbAngular;
 
 	public PostResource() throws Exception {
-		dbAngular = new DbAngular("dbfiles.json");
+		dbAngular = DbAngular.instance("dbfiles.json");
 	}
 	
 	

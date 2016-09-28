@@ -15,10 +15,19 @@ import angularTests.model.Post;
 public class DbAngular {
 	private static Logger log = Logger.getLogger(DbAngular.class);
 
+	private static DbAngular dbAngular;
+
 	private List<Post> posts;
 	private StringBuilder destinyString;
 
-	public DbAngular(String localFile) throws Exception {
+	public synchronized static DbAngular instance(String localFile) throws Exception{
+		if (dbAngular == null) {
+			dbAngular = new DbAngular(localFile);
+		}
+		return dbAngular;
+	}
+	
+	private DbAngular(String localFile) throws Exception {
 		this.destinyString = new StringBuilder();
 		InputStream is = DbAngular.class.getResourceAsStream("/"+localFile);
 		if (is != null) {
