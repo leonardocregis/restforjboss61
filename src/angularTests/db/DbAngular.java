@@ -4,7 +4,6 @@ package angularTests.db;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -52,7 +51,11 @@ public class DbAngular {
 	private void loadJson() throws Exception {
 		readLinesCommand.executeCommand();
 		ObjectMapper mapper = new ObjectMapper();
-		this.posts = Arrays.asList(mapper.readValue(destinyString.toString(), Post[].class));		
+		Post[] posts = mapper.readValue(destinyString.toString(), Post[].class);
+		this.posts = new ArrayList<Post>();
+		for (Post post : posts){
+			this.posts.add(post);
+		}
 	}
 
 	public List<Post> getPosts() {
@@ -69,14 +72,16 @@ public class DbAngular {
 	public static void main(String[] args) {
 		try {
 			DbAngular dbAngular = new DbAngular("dbfiles.json");
-			log.info(dbAngular.getPosts());
+			log.info(dbAngular.getPosts().size());
+			log.info(dbAngular.remove(1));
+			log.info(dbAngular.getPosts().size());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public boolean remove(long id) {
+	public Post remove(int id) {
 		return posts.remove(id);
 		
 	}
