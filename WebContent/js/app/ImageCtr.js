@@ -20,7 +20,7 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams',f
 		$scope.submit = function submit(){
 			if ($scope.formulario.$valid){
                 if($routeParams.idFoto) {
-                    $http.put('rest/posts/' + $scope.foto._id, $scope.foto)
+                    $http.put('rest/posts/' + $scope.foto.id, $scope.foto)
                     .success(function() {
                         $scope.mensagem = 'Foto alterada com sucesso';
 
