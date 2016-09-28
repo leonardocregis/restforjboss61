@@ -11,6 +11,12 @@ var aplicativo = angular.module('myapp',['ngAnimate','ngRoute','minhasDiretivas'
         controller: 'ImageCtr'
     });
 
+    $routeProvider.when('/fotos/edit/:idFoto', {
+        templateUrl: 'partials/foto.html',
+        controller: 'ImageCtr'
+    });
+
+    
     $routeProvider.otherwise({redirectTo: '/fotos'});
 
 });
