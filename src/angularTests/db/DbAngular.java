@@ -86,4 +86,8 @@ public class DbAngular {
 		
 	}
 
+	public Post get(int id) {
+		return posts.get(id);
+	}
+
 }
