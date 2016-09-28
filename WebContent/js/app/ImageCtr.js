@@ -1,15 +1,14 @@
 /**
  * @author LRegis
  */
-
 angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams',function($scope,$http,$routeParams){
 	
 		$scope.foto = {};
 		$scope.message = '';
 		if ($routeParams.idFoto){
-            $http.get('rest/posts/' + $routeParams.fotoId)
+            $http.get('rest/posts/' + $routeParams.idFoto)
             .success(function(foto) {
-            	console.log('loaded'+foto);
+            	console.log('loaded['+foto+']');
                 $scope.foto = foto;
             })
             .error(function(erro) {
