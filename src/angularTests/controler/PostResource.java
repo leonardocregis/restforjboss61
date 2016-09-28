@@ -33,6 +33,11 @@ public class PostResource {
 		return posts;
 	}
 
+	@GET
+	@Path("{id}")
+	public Post getPost(@PathParam("id")int id){
+		return dbAngular.get(id);
+	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
