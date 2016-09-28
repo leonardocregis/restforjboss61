@@ -36,7 +36,7 @@ public class PostResource {
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Post getPost(@PathParam("id")int id){
+	public Post getPost(@PathParam("id")String id){
 		return dbAngular.get(id);
 	}
 	
