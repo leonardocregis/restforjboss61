@@ -19,8 +19,8 @@ angular.module('myapp').controller('ImagesCtr',['$scope','$http',function($scope
 			var idFoto = $scope.fotos.lastIndexOf(foto);
 			console.log(idFoto);
 			$http.delete('rest/posts/'+idFoto)
-			.success(function(retorno){
-				$scope.message = retorno;
+			.success(function(){
+				$scope.message = foto.titulo + " removed with success";
 				$scope.fotos.splice(idFoto,1);
 				
 			})
