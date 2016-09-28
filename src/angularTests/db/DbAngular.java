@@ -86,8 +86,13 @@ public class DbAngular {
 		
 	}
 
-	public Post get(int id) {
-		return posts.get(id);
+	public Post get(String id) {
+		for (Post post : posts){
+			if (post.getId().equals(id)){
+				return post;
+			}
+		}
+		return null;
 	}
 
 }
