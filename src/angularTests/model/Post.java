@@ -1,9 +1,11 @@
 package angularTests.model;
 
+
 import java.io.File;
 import java.io.IOException;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -93,6 +95,7 @@ public class Post {
 		
 	}
 
+	@XmlTransient
 	public Group getGrupoObj() {
 		return new Group(this.grupo);
 	}
