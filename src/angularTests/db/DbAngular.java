@@ -4,11 +4,14 @@ package angularTests.db;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 
+import angularTests.model.Group;
 import angularTests.model.Post;
 
 public class DbAngular {
@@ -19,6 +22,8 @@ public class DbAngular {
 	private List<Post> posts;
 	private StringBuilder destinyString;
 
+	private Set<Group> groups;
+	
 	public synchronized static DbAngular instance(String localFile) throws Exception{
 		if (dbAngular == null) {
 			dbAngular = new DbAngular(localFile);
@@ -53,8 +58,10 @@ public class DbAngular {
 		ObjectMapper mapper = new ObjectMapper();
 		Post[] posts = mapper.readValue(destinyString.toString(), Post[].class);
 		this.posts = new ArrayList<Post>();
+		this.groups = new HashSet<>();
 		for (Post post : posts){
 			this.posts.add(post);
+			this.groups.add(new Group(post.getGrupo()));
 		}
 	}
 
@@ -91,6 +98,7 @@ public class DbAngular {
 			Post p = posts.get(i);
 			if (p.getId().equals(index)){
 				posts.set(i,post);
+				groups.add(post.getGrupoObj());
 				break;
 			}
 		}
@@ -104,4 +112,7 @@ public class DbAngular {
 		return null;
 	}
 
+	public Set<Group> getGroups() {
+		return groups;
+	}
 }
