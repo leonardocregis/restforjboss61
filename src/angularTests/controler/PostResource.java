@@ -46,7 +46,7 @@ public class PostResource {
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void updatePost(@PathParam("id")int id,Post post){
+	public void updatePost(@PathParam("id")String id,Post post){
 		dbAngular.set(id,post);
 	}
 	
