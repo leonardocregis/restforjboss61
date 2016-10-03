@@ -92,4 +92,8 @@ public class Post {
 		}
 		
 	}
+
+	public Group getGrupoObj() {
+		return new Group(this.grupo);
+	}
 }
