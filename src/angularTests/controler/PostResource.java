@@ -1,6 +1,7 @@
 package angularTests.controler;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
 
 import angularTests.db.DbAngular;
+import angularTests.model.Group;
 import angularTests.model.Post;
 
 @Path("posts")
@@ -63,5 +65,11 @@ public class PostResource {
 		dbAngular.remove(id);
 		return new Message("Removed with success");
 	}
+	
+	@GET
+	@Path("grupos")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Set<Group> getGroups(){
+		return dbAngular.getGroups();
+	}
 }
-
