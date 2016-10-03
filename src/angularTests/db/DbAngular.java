@@ -86,8 +86,14 @@ public class DbAngular {
 		
 	}
 
-	public void set(int index,Post post){
-		posts.set(index, post);
+	public void set(String index,Post post){
+		for (int i = 0; i < posts.size(); i++) {
+			Post p = posts.get(i);
+			if (p.getId().equals(index)){
+				posts.set(i,post);
+				break;
+			}
+		}
 	}
 	public Post get(String id) {
 		for (Post post : posts){
