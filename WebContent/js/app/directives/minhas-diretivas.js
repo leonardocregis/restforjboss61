@@ -20,3 +20,15 @@ myDirectives.directive('minhaFoto',function (){
 	ddo.templateUrl = 'js/app/directives/minha-foto.html';
 	return ddo;
 });
+
+myDirectives.directive('meuBotaoRemover',function (){
+	
+	 var ddo = {};
+     ddo.restrict = "E";
+     ddo.scope = {
+         nome: '@',
+         acao : '&'
+     }
+     ddo.template = '<button class="btn btn-danger btn-block" ng-click="acao()">{{nome}}</button>';
+     return ddo;
+});
