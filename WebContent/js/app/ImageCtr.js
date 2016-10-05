@@ -5,15 +5,18 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams',f
 	
 		$scope.foto = {};
 		$scope.message = '';
+		$scope.grupo = {};
 		if ($routeParams.idFoto){
             $http.get('rest/posts/' + $routeParams.idFoto)
             .success(function(foto) {
-            	console.log('loaded['+foto+']');
+            	console.log('loaded['+foto.grupo+']');
                 $scope.foto = foto;
+                console.log('grupo='+$scope.grupo);
+                $scope.grupo = $scope.foto.grupo;
             })
             .error(function(erro) {
                 console.log(erro);
-                $scope.mensagem = 'Não foi possível obter a foto'
+                $scope.message = 'Não foi possível obter a foto'
             });
 		}
 		
@@ -22,23 +25,23 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams',f
                 if($routeParams.idFoto) {
                     $http.put('rest/posts/' + $scope.foto.id, $scope.foto)
                     .success(function() {
-                        $scope.mensagem = 'Foto alterada com sucesso';
+                        $scope.message = 'Foto alterada com sucesso';
 
                     })
                     .error(function(erro) {
                         console.log(erro);
-                        $scope.mensagem = 'Não foi possível alterar';
+                        $scope.message = 'Não foi possível alterar';
                     });
 
                 }else{
 				   $http.post('rest/posts', $scope.foto)
 	                .success(function() {
 	                	$scope.foto={};
-	                    $scope.mensagem = 'Foto cadastrada com sucesso';
+	                    $scope.message = 'Foto cadastrada com sucesso';
 	                })
 	                .error(function(erro) {
 	                    console.log(erro);
-	                    $scope.mensagem = 'Não foi possível cadastrar a foto';
+	                    $scope.message = 'Não foi possível cadastrar a foto';
 	                });
                 }
 		    }
