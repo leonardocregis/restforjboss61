@@ -11,7 +11,6 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import angularTests.model.Group;
 import angularTests.model.Post;
 
 public class DbAngular {
@@ -22,7 +21,7 @@ public class DbAngular {
 	private List<Post> posts;
 	private StringBuilder destinyString;
 
-	private Set<Group> groups;
+	private Set<String> groups;
 	
 	public synchronized static DbAngular instance(String localFile) throws Exception{
 		if (dbAngular == null) {
@@ -61,7 +60,7 @@ public class DbAngular {
 		this.groups = new HashSet<>();
 		for (Post post : posts){
 			this.posts.add(post);
-			this.groups.add(new Group(post.getGrupo()));
+			this.groups.add(post.getGrupo());
 		}
 	}
 
@@ -98,7 +97,7 @@ public class DbAngular {
 			Post p = posts.get(i);
 			if (p.getId().equals(index)){
 				posts.set(i,post);
-				groups.add(post.getGrupoObj());
+				groups.add(post.getGrupo());
 				break;
 			}
 		}
@@ -112,7 +111,7 @@ public class DbAngular {
 		return null;
 	}
 
-	public Set<Group> getGroups() {
+	public Set<String> getGroups() {
 		return groups;
 	}
 }

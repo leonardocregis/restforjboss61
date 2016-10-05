@@ -16,7 +16,6 @@ import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
 
 import angularTests.db.DbAngular;
-import angularTests.model.Group;
 import angularTests.model.Post;
 
 @Path("posts")
@@ -69,7 +68,13 @@ public class PostResource {
 	@GET
 	@Path("grupos")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Set<Group> getGroups(){
+	public Set<String> getGroups(){
 		return dbAngular.getGroups();
+	}
+	@GET
+	@Path("echo")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String echo(){
+		return "echo";
 	}
 }
