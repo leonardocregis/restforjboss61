@@ -17,13 +17,14 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams',f
                 $scope.message = 'Não foi possível obter a foto'
             });
 		}
-		$scope.count = 0;
+		
 		$scope.submit = function submit(){
 			if ($scope.formulario.$valid){
                 if($routeParams.idFoto) {
                     $http.put('rest/posts/' + $scope.foto.id, $scope.foto)
                     .success(function() {
-                        $scope.message = 'Foto alterada com sucesso'+$scope.count++;
+                        $scope.message = 'Foto alterada com sucesso';
+
                     })
                     .error(function(erro) {
                         console.log(erro);
