@@ -5,28 +5,25 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams',f
 	
 		$scope.foto = {};
 		$scope.message = '';
-		$scope.grupo = {};
+		$scope.grupo = '';
 		if ($routeParams.idFoto){
             $http.get('rest/posts/' + $routeParams.idFoto)
             .success(function(foto) {
             	console.log('loaded['+foto.grupo+']');
                 $scope.foto = foto;
-                console.log('grupo='+$scope.grupo);
-                $scope.grupo = $scope.foto.grupo;
             })
             .error(function(erro) {
                 console.log(erro);
                 $scope.message = 'Não foi possível obter a foto'
             });
 		}
-		
+		$scope.count = 0;
 		$scope.submit = function submit(){
 			if ($scope.formulario.$valid){
                 if($routeParams.idFoto) {
                     $http.put('rest/posts/' + $scope.foto.id, $scope.foto)
                     .success(function() {
-                        $scope.message = 'Foto alterada com sucesso';
-
+                        $scope.message = 'Foto alterada com sucesso'+$scope.count++;
                     })
                     .error(function(erro) {
                         console.log(erro);
