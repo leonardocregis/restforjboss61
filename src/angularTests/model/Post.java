@@ -95,8 +95,4 @@ public class Post {
 		
 	}
 
-	@XmlTransient
-	public Group getGrupoObj() {
-		return new Group(this.grupo);
-	}
 }
