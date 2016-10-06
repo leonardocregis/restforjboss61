@@ -9,13 +9,11 @@ angular.module('myapp').controller('ImagesCtr',['$scope','$http','$resource',fun
 
 		var recursoFoto = $resource('rest/posts/:fotoId');
 
-		$http.get('rest/posts')
-			.success(function(retorno){
-				$scope.fotos = retorno;
-			})
-			.error(function(error){
-				console.log(error);
-			});
+	    recursoFoto.query(function(fotos) {
+	        $scope.fotos = fotos;
+	    }, function(erro) {
+	        console.log(erro);
+	    });
 
 		$scope.remover = function remover(foto){
 			var idFoto = $scope.fotos.lastIndexOf(foto);
