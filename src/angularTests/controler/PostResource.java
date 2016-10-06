@@ -59,6 +59,7 @@ public class PostResource {
 	
 	@DELETE
 	@Path("{id}")
+	@Produces(MediaType.TEXT_PLAIN)
 	public Message remove(@PathParam("id")int id){
 		log.info("removing item with id="+id);
 		dbAngular.remove(id);
