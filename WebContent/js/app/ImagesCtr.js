@@ -18,13 +18,10 @@ angular.module('myapp').controller('ImagesCtr',['$scope','$http','$resource',fun
 		$scope.remover = function remover(foto){
 			var idFoto = $scope.fotos.lastIndexOf(foto);
 			console.log(idFoto);
-			$http.delete('rest/posts/'+idFoto)
-			.success(function(){
+			recursoFoto.delete({fotoId:idFoto},function(){
 				$scope.message = foto.titulo + " removed with success";
 				$scope.fotos.splice(idFoto,1);
-				
-			})
-			.error(function(error){
+			},function(error){
 				$scope.message(error);
 			});
 			
