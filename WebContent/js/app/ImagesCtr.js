@@ -7,7 +7,7 @@ angular.module('myapp').controller('ImagesCtr',['$scope','$http','$resource',fun
 		$scope.fotos = [];
 		$scope.filtro = '';
 
-		var recursoFoto = $resource('/v1/fotos/:fotoId');
+		var recursoFoto = $resource('rest/posts/:fotoId');
 
 		$http.get('rest/posts')
 			.success(function(retorno){
