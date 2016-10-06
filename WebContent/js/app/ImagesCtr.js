@@ -2,10 +2,12 @@
  * @LRegis
  */
 
-angular.module('myapp').controller('ImagesCtr',['$scope','$http',function($scope,$http){
+angular.module('myapp').controller('ImagesCtr',['$scope','$http','$resource',function($scope,$http,$resource){
 	
 		$scope.fotos = [];
 		$scope.filtro = '';
+
+		var recursoFoto = $resource('/v1/fotos/:fotoId');
 
 		$http.get('rest/posts')
 			.success(function(retorno){
