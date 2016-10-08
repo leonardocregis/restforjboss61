@@ -6,13 +6,13 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','
 		$scope.foto = {};
 		$scope.message = '';
 		$scope.grupo = '';
+		var res = $resource('rest/posts/:idFoto');
 		if ($routeParams.idFoto){
-            $http.get('rest/posts/' + $routeParams.idFoto)
-            .success(function(foto) {
+            res.get( {idFoto:$routeParams.idFoto},function(foto) {
             	console.log('loaded['+foto.grupo+']');
                 $scope.foto = foto;
-            })
-            .error(function(erro) {
+                }
+            ,function(erro) {
                 console.log(erro);
                 $scope.message = 'Não foi possível obter a foto'
             });
