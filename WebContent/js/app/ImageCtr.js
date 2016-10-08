@@ -32,12 +32,10 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','
                     });
 
                 }else{
-				   $http.post('rest/posts', $scope.foto)
-	                .success(function() {
+				   res.save( $scope.foto,function() {
 	                	$scope.foto={};
 	                    $scope.message = 'Foto cadastrada com sucesso';
-	                })
-	                .error(function(erro) {
+	                },function(erro) {
 	                    console.log(erro);
 	                    $scope.message = 'Não foi possível cadastrar a foto';
 	                });
