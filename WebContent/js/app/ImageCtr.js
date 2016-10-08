@@ -1,7 +1,7 @@
 /**
  * @author LRegis
  */
-angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams',function($scope,$http,$routeParams){
+angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','$resource',function($scope,$http,$routeParams,$resource){
 	
 		$scope.foto = {};
 		$scope.message = '';
