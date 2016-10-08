@@ -6,7 +6,7 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','
 		$scope.foto = {};
 		$scope.message = '';
 		$scope.grupo = '';
-		var res = $resource('rest/posts/:idFoto');
+		var res = $resource('rest/posts/:idFoto',null,{'update':{method:'PUT'}});
 		if ($routeParams.idFoto){
             res.get( {idFoto:$routeParams.idFoto},function(foto) {
             	console.log('loaded['+foto.grupo+']');
