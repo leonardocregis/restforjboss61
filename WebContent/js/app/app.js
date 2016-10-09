@@ -1,4 +1,4 @@
-var aplicativo = angular.module('myapp',['ngAnimate','ngRoute','minhasDiretivas','ngResource'])
+var aplicativo = angular.module('myapp',['ngAnimate','ngRoute','minhasDiretivas','ngResource','myservices'])
 .config(function($routeProvider){
 	
     $routeProvider.when('/fotos', {
