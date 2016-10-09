@@ -1,14 +1,14 @@
 /**
  * @author LRegis
  */
-angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','$resource',function($scope,$http,$routeParams,$resource){
+angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','resPicture',function($scope,$http,$routeParams,resPicture){
 	
 		$scope.foto = {};
 		$scope.message = '';
 		$scope.grupo = '';
-		var res = $resource('rest/posts/:idFoto',null,{'update':{method:'PUT'}});
+		
 		if ($routeParams.idFoto){
-            res.get( {idFoto:$routeParams.idFoto},function(foto) {
+			resPicture.get( {idFoto:$routeParams.idFoto},function(foto) {
             	console.log('loaded['+foto.grupo+']');
                 $scope.foto = foto;
                 }
@@ -21,7 +21,7 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','
 		$scope.submit = function submit(){
 			if ($scope.formulario.$valid){
                 if($routeParams.idFoto) {
-                    res.update({idFoto:$routeParams.idFoto}, $scope.foto,function() {
+                	resPicture.update({idFoto:$routeParams.idFoto}, $scope.foto,function() {
                         $scope.message = 'Foto alterada com sucesso';
                     },function(erro) {
                         console.log(erro);
@@ -29,7 +29,7 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','
                     });
 
                 }else{
-				   res.save( $scope.foto,function() {
+                	resPicture.save( $scope.foto,function() {
 	                	$scope.foto={};
 	                    $scope.message = 'Foto cadastrada com sucesso';
 	                },function(erro) {
