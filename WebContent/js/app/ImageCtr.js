@@ -21,12 +21,9 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','
 		$scope.submit = function submit(){
 			if ($scope.formulario.$valid){
                 if($routeParams.idFoto) {
-                    $http.put('rest/posts/' + $scope.foto.id, $scope.foto)
-                    .success(function() {
+                    res.update({idFoto:$routeParams.idFoto}, $scope.foto,function() {
                         $scope.message = 'Foto alterada com sucesso';
-
-                    })
-                    .error(function(erro) {
+                    },function(erro) {
                         console.log(erro);
                         $scope.message = 'Não foi possível alterar';
                     });
