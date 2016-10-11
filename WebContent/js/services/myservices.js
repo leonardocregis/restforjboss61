@@ -11,6 +11,39 @@
 				}
 			});
 		}
- ).factory('cadastroDeFotos',function(resPicture,$q){
-	 	
- });
+ ).factory('cadastroDeFotos',
+		function(resPicture,$q){
+	 		var service = {};
+	 		service.cadastrar = function(foto){
+	 			return $q(function(resolve, reject) {
+
+	                if(foto._id) {
+	                	resPicture.update({fotoId: foto._id}, foto, function() {
+	                        resolve({
+	                            mensagem: 'Foto ' + foto.titulo + ' atualizada com sucesso',
+	                            inclusao: false
+	                        });
+	                    }, function(erro) {
+	                        console.log(erro);
+	                        reject({
+	                            mensagem: 'Não foi possível atualizar a foto ' + foto.titulo
+	                        });
+	                    });
+
+	                } else {
+	                	resPicture.save(foto, function() {
+	                        resolve({
+	                            mensagem: 'Foto ' + foto.titulo + ' incluída com sucesso',
+	                            inclusao: true
+	                        });
+	                    }, function(erro) {
+	                        console.log(erro);
+	                        reject({
+	                            mensagem: 'Não foi possível incluir a foto ' + foto.titulo
+	                        });
+	                    });
+	                } 
+	 		};
+	 		return service;
+ 		}
+ );
