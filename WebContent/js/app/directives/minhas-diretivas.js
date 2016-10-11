@@ -37,13 +37,13 @@ myDirectives.directive('meuFocus',function(){
 	var ddo ={};
 	ddo.restrict='A';
 	ddo.scope={
-			onFocus:'='
+			focado:'='
 	};
 	ddo.link=function(scope,element){
 		scope.$watch('focado',function(){
 			if (scope.focado){
 				element[0].focus();
-				scope.focado=true
+				scope.focado=false
 			}
 		});
 	};
