@@ -36,6 +36,16 @@ myDirectives.directive('meuBotaoRemover',function (){
 myDirectives.directive('meuFocus',function(){
 	var ddo ={};
 	ddo.restrict='A';
-	ddo.scope={};
+	ddo.scope={
+			onFocus:'='
+	};
+	ddo.link=function(scope,element){
+		scope.$watch('focado',function(){
+			if (scope.focado){
+				element[0].focus();
+				scope.focado=true
+			}
+		});
+	};
 	return ddo;
 });
