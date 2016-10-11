@@ -18,7 +18,7 @@
 	 			return $q(function(resolve, reject) {
 
 	                if(foto.id) {
-	                	resPicture.update({fotoId: foto.id}, foto, function() {
+	                	resPicture.update({idFoto: foto.id}, foto, function() {
 	                        resolve({
 	                            mensagem: 'Foto ' + foto.titulo + ' atualizada com sucesso',
 	                            inclusao: false
