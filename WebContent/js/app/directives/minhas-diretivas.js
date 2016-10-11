@@ -32,3 +32,10 @@ myDirectives.directive('meuBotaoRemover',function (){
      ddo.template = '<button class="btn btn-danger btn-block" ng-click="acao()">{{nome}}</button>';
      return ddo;
 });
+
+myDirective.directive('meuFocus',function(){}
+	var ddo ={};
+	ddo.restrict='A';
+	ddo.scope={};
+	return ddo;
+);
