@@ -10,4 +10,7 @@
 					method : 'PUT'
 				}
 			});
-		});
+		}
+ ).factory('cadastroDeFotos',function(resPicture,$q){
+	 	
+ });
