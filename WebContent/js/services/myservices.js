@@ -17,8 +17,8 @@
 	 		service.cadastrar = function(foto){
 	 			return $q(function(resolve, reject) {
 
-	                if(foto._id) {
-	                	resPicture.update({fotoId: foto._id}, foto, function() {
+	                if(foto.id) {
+	                	resPicture.update({fotoId: foto.id}, foto, function() {
 	                        resolve({
 	                            mensagem: 'Foto ' + foto.titulo + ' atualizada com sucesso',
 	                            inclusao: false
@@ -43,7 +43,7 @@
 	                        });
 	                    });
 	                } 
-	 		};
+	 		});
 	 		return service;
  		}
- );
+ });
