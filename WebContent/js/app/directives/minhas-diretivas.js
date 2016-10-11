@@ -33,9 +33,9 @@ myDirectives.directive('meuBotaoRemover',function (){
      return ddo;
 });
 
-myDirective.directive('meuFocus',function(){}
+myDirectives.directive('meuFocus',function(){
 	var ddo ={};
 	ddo.restrict='A';
 	ddo.scope={};
 	return ddo;
-);
+});
