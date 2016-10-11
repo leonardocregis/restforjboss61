@@ -1,7 +1,7 @@
 /**
  * @author LRegis
  */
-angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','resPicture',function($scope,$http,$routeParams,resPicture){
+angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','resPicture','cadastroDeFotos',function($scope,$http,$routeParams,resPicture,cadastroDeFotos){
 	
 		$scope.foto = {};
 		$scope.message = '';
@@ -20,23 +20,14 @@ angular.module('myapp').controller('ImageCtr',['$scope','$http','$routeParams','
 		
 		$scope.submit = function submit(){
 			if ($scope.formulario.$valid){
-                if($routeParams.idFoto) {
-                	resPicture.update({idFoto:$routeParams.idFoto}, $scope.foto,function() {
-                        $scope.message = 'Foto alterada com sucesso';
-                    },function(erro) {
-                        console.log(erro);
-                        $scope.message = 'Não foi possível alterar';
-                    });
-
-                }else{
-                	resPicture.save( $scope.foto,function() {
-	                	$scope.foto={};
-	                    $scope.message = 'Foto cadastrada com sucesso';
-	                },function(erro) {
-	                    console.log(erro);
-	                    $scope.message = 'Não foi possível cadastrar a foto';
+				 cadastroDeFotos.cadastrar($scope.foto)
+			       .then(function(dados) {
+	                    $scope.mensagem = dados.mensagem;
+	                    if (dados.inclusao) $scope.foto = {};
+	                })
+	                .catch(function(erro) {
+	                    $scope.mensagem = erro.mensagem;
 	                });
-                }
 		    }
 		};
 		
