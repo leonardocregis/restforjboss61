@@ -40,11 +40,8 @@ myDirectives.directive('meuFocus',function(){
 			focado:'='
 	};
 	ddo.link=function(scope,element){
-		scope.$watch('focado',function(){
-			if (scope.focado){
+		scope.$on('fotoCadstrada',function(){
 				element[0].focus();
-				scope.focado=false
-			}
 		});
 	};
 	return ddo;
