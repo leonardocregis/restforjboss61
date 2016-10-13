@@ -53,9 +53,11 @@ myDirectives.directive('meusTitulos',function(){
 	ddo.template = '<ul><li ng-repeat="titulo in titulos">{{titulo}}</li></ul>';
 	ddo.controller=function($scope,recursoFoto){
 		  recursoFoto.query(function(fotos) {
-              $scope.titulos = fotos.map(function(foto) {
-                  return foto.titulo;
-              });    
-	};
+              $scope.titulos = fotos.map(
+            		  function(foto) {
+            			  	return foto.titulo;
+            		  });    
+		  });
+	}
     return ddo;
 });
