@@ -2,7 +2,7 @@
  * 
  */
 
-var myDirectives = angular.module('minhasDiretivas',[]).directive('meuPainel',function (){
+var myDirectives = angular.module('minhasDiretivas',['myservices']).directive('meuPainel',function (){
 	
 	var ddo = {};
 	ddo.restrict= 'AE';
@@ -51,8 +51,8 @@ myDirectives.directive('meusTitulos',function(){
 	var ddo={};
 	ddo.restrict = 'E';
 	ddo.template = '<ul><li ng-repeat="titulo in titulos">{{titulo}}</li></ul>';
-	ddo.controller=function($scope,recursoFoto){
-		  recursoFoto.query(function(fotos) {
+	ddo.controller=function($scope,resPicture){
+		resPicture.query(function(fotos) {
               $scope.titulos = fotos.map(
             		  function(foto) {
             			  	return foto.titulo;
