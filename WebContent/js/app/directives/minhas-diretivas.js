@@ -51,5 +51,7 @@ myDirectives.directive('meusTitulos',function(){
 	var ddo={};
 	ddo.restrict = 'E';
 	ddo.template = '<ul><li ng-repeat="titulo in titulos">{{titulo}}</li></ul>';
+	ddo.controller=function($scope,recursoFoto){
+	};
     return ddo;
 });
